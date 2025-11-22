@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Triasic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+            },
+            colors: {
+              md: {
+                sys: {
+                  primary: 'var(--md-sys-primary)',
+                  onPrimary: 'var(--md-sys-on-primary)',
+                  primaryContainer: 'var(--md-sys-primary-container)',
+                  onPrimaryContainer: 'var(--md-sys-on-primary-container)',
+                  secondary: 'var(--md-sys-secondary)',
+                  secondaryContainer: 'var(--md-sys-secondary-container)',
+                  onSecondaryContainer: 'var(--md-sys-on-secondary-container)',
+                  surface: 'var(--md-sys-surface)',
+                  onSurface: 'var(--md-sys-on-surface)',
+                  surfaceVariant: 'var(--md-sys-surface-variant)',
+                  onSurfaceVariant: 'var(--md-sys-on-surface-variant)',
+                  outline: 'var(--md-sys-outline)',
+                  error: '#BA1A1A',
+                  inverseSurface: '#2E3132',
+                  inverseOnSurface: '#EFF1F1',
+                }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* --- Base Variables (Default Theme: Cyan) --- */
+      :root {
+        --md-sys-primary: #006874;
+        --md-sys-on-primary: #FFFFFF;
+        --md-sys-primary-container: #97F0FF;
+        --md-sys-on-primary-container: #001F24;
+        --md-sys-secondary: #4A6267;
+        --md-sys-secondary-container: #CCE8ED;
+        --md-sys-on-secondary-container: #051F23;
+        --md-sys-surface: #FAFDFD;
+        --md-sys-on-surface: #191C1D;
+        --md-sys-surface-variant: #DAE4E6;
+        --md-sys-on-surface-variant: #3F484A;
+        --md-sys-outline: #6F797A;
+        
+        /* Gradient Background */
+        --bg-gradient-start: #E0F7FA;
+        --bg-gradient-end: #F0FDFF;
+      }
+
+      /* --- Theme 2: Dynamic (Material You / Violet) --- */
+      .theme-dynamic {
+        --md-sys-primary: #6750A4;
+        --md-sys-on-primary: #FFFFFF;
+        --md-sys-primary-container: #EADDFF;
+        --md-sys-on-primary-container: #21005D;
+        --md-sys-secondary: #625B71;
+        --md-sys-secondary-container: #E8DEF8;
+        --md-sys-on-secondary-container: #1D192B;
+        --md-sys-surface: #FFFBFE;
+        --md-sys-on-surface: #1C1B1F;
+        --md-sys-surface-variant: #E7E0EC;
+        --md-sys-on-surface-variant: #49454F;
+        --md-sys-outline: #79747E;
+
+        --bg-gradient-start: #F3EDF7;
+        --bg-gradient-end: #E7E0EC;
+      }
+
+      /* --- Theme 3: Cloudflare (Blue/Grey) --- */
+      .theme-cloudflare {
+        --md-sys-primary: #005FB8;
+        --md-sys-on-primary: #FFFFFF;
+        --md-sys-primary-container: #D1E4FF;
+        --md-sys-on-primary-container: #001D36;
+        --md-sys-secondary: #535F70;
+        --md-sys-secondary-container: #D7E3F7;
+        --md-sys-on-secondary-container: #101C2B;
+        --md-sys-surface: #F8F9FA;
+        --md-sys-on-surface: #1A1C1E;
+        --md-sys-surface-variant: #DFE2EB;
+        --md-sys-on-surface-variant: #43474E;
+        --md-sys-outline: #73777F;
+
+        --bg-gradient-start: #F0F2F5;
+        --bg-gradient-end: #E2E6EA;
+      }
+
+      /* --- Theme 4: Cotton Candy (Pastel Pink/Blue) --- */
+      .theme-cotton {
+        --md-sys-primary: #984061;
+        --md-sys-on-primary: #FFFFFF;
+        --md-sys-primary-container: #FFD9E2;
+        --md-sys-on-primary-container: #3E001D;
+        --md-sys-secondary: #76565B;
+        --md-sys-secondary-container: #FFD9E2; /* Reusing pink for softer look */
+        --md-sys-on-secondary-container: #2C1519;
+        --md-sys-surface: #FFF8F8;
+        --md-sys-on-surface: #201A1B;
+        --md-sys-surface-variant: #F2DDE1;
+        --md-sys-on-surface-variant: #514347;
+        --md-sys-outline: #837377;
+
+        --bg-gradient-start: #FFF0F5;
+        --bg-gradient-end: #F0F8FF;
+      }
+
+      /* --- AMOLED Dark Mode Override --- */
+      .amoled-mode {
+        /* Override background to pure black */
+        --bg-gradient-start: #000000;
+        --bg-gradient-end: #000000;
+
+        /* Dark Mode Colors */
+        --md-sys-surface: #000000;
+        --md-sys-on-surface: #FFFFFF;
+        --md-sys-surface-variant: #1F1F1F; /* Slightly lighter for cards */
+        --md-sys-on-surface-variant: #CAC4D0;
+        --md-sys-outline: #938F99;
+
+        /* Adjust containers for dark mode contrast */
+        /* Note: We keep the primary hue but often lighten it for dark mode, 
+           or rely on the container opacity. For simplicity, we keep the 'sys' vars
+           but users might see high contrast. */
+           
+        /* Example adjustments for better dark mode readability if needed */
+        --md-sys-on-primary-container: #FFFFFF; 
+      }
+
+      /* Apply Variables */
+      body {
+        background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+        background-attachment: fixed;
+        color: var(--md-sys-on-surface);
+        min-height: 100vh;
+        overscroll-behavior-y: none; 
+        -webkit-tap-highlight-color: transparent;
+        transition: background 0.5s ease, color 0.5s ease;
+      }
+      
+      /* Hide scrollbar */
+      ::-webkit-scrollbar { width: 0px; background: transparent; }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      .mask-fade-right {
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.3?external=react,react-dom"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
